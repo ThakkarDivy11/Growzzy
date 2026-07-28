@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { GrowzzyLogo } from '../logo/GrowzzyLogo';
-import { Instagram, Globe, MapPin, Phone, Mail } from 'lucide-react';
+import { Instagram, Globe, MapPin, Phone, Mail, Linkedin } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
@@ -125,6 +125,20 @@ export const Footer: React.FC = () => {
             <a href="#" className="hover:text-white transition">Terms of Service</a>
             <span>Ahmedabad, Gujarat</span>
           </div>
+        </div>
+
+        {/* Developer Credit */}
+        <div className="mt-6 pt-4 border-t border-white/5 flex items-center justify-center gap-1.5 text-[11px] text-gray-500">
+          <span>Developed by</span>
+          <a
+            href="https://www.linkedin.com/in/divy-thakkar-a89859227/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 text-gray-400 hover:text-[#0A66C2] transition-colors duration-300 font-medium"
+          >
+            Divy Thakkar
+            <Linkedin className="w-3.5 h-3.5" />
+          </a>
         </div>
 
       </div>
