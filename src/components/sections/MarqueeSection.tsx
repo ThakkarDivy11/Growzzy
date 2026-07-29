@@ -1,72 +1,89 @@
 'use client';
 
 import React from 'react';
-import { Award, Users, CheckCircle2, Globe } from 'lucide-react';
+import { Target, ArrowRight } from 'lucide-react';
+import { AnimatedCounter } from '../ui/AnimatedCounter';
 
 export const MarqueeSection: React.FC = () => {
-  const brandNames = [
-    'TechNova Systems', 'Zeniq Fashion', 'Apex Real Estate', 'Surat Diamonds',
-    'Vedic Organics', 'Urban Crafted', 'Solaris Energy', 'Nexus Logistics',
-    'Elevance Health', 'Gujarat Retail', 'Aura Skincare', 'Kuro Hospitality'
-  ];
-
-  const stats = [
-    { icon: Award, value: '300+', label: 'Projects', desc: 'Campaigns & websites delivered' },
-    { icon: Users, value: '100+', label: 'Happy Clients', desc: 'Active brand partnerships' },
-    { icon: CheckCircle2, value: '98%', label: 'Client Satisfaction', desc: 'High retention & ROAS' },
-    { icon: Globe, value: '12+', label: 'Industries Served', desc: 'Real estate, ecom, healthcare & tech' },
+  const partnerLogos = [
+    'CHAPMAN', 'LOGO IPSUM', 'LOREM IPSUM', 'LOGOPSUM', 'green green', 'Lorem ipsum', 'CHAPMAN'
   ];
 
   return (
-    <section className="py-16 bg-[#071B3B] text-white relative overflow-hidden border-y border-white/10">
-      {/* Subtle background glow */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#071B3B] via-[#102B5A] to-[#071B3B] opacity-90 pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section className="py-12 bg-[#F8FAFC]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <p className="text-center text-xs font-heading font-bold uppercase tracking-[0.25em] text-[#EF4444] mb-8">
-          TRUSTED BY 100+ LEADING BRANDS & STARTUPS
-        </p>
-
-        {/* Marquee Container */}
-        <div className="relative w-full overflow-hidden py-4 mb-16">
-          <div className="flex w-[200%] animate-marquee items-center gap-12 sm:gap-16">
-            {[...brandNames, ...brandNames].map((brand, idx) => (
-              <div
-                key={idx}
-                className="flex items-center gap-3 glass-card-dark px-6 py-3 rounded-2xl border border-white/10 shrink-0 opacity-85 hover:opacity-100 hover:scale-105 transition duration-300"
-              >
-                <div className="w-3 h-3 rounded-full bg-[#EF4444]" />
-                <span className="font-heading font-bold text-base tracking-wider uppercase text-gray-200">
-                  {brand}
-                </span>
+        {/* Dark Forest Green Banner Card */}
+        <div className="bg-[#12372A] rounded-3xl p-8 lg:p-12 text-white mb-16 shadow-2xl relative overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+            
+            {/* Left Column: Image Thumbnail, Headline & Text */}
+            <div className="lg:col-span-7 flex flex-col md:flex-row items-start gap-6">
+              <img
+                src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=400&q=80"
+                alt="Marketing Team"
+                className="w-full md:w-48 h-36 object-cover rounded-2xl shrink-0 border border-white/20"
+              />
+              <div>
+                <h3 className="font-sans font-bold text-2xl sm:text-3xl text-white leading-snug mb-3">
+                  Maximize Your Growth with Our Expert Digital Marketing
+                </h3>
+                <p className="text-sm text-gray-300 leading-relaxed mb-6 font-sans">
+                  From strategy development to execution, our expert team works with you to achieve maximum ROI and sustainable growth.
+                </p>
+                <button className="px-6 py-2.5 rounded-full bg-[#C0F000] text-[#12372A] font-sans font-bold text-xs hover:bg-[#A8D400] transition cursor-pointer">
+                  Learn More
+                </button>
               </div>
-            ))}
+            </div>
+
+            {/* Right Column: "Success Our Priority" & Lime Stats Card */}
+            <div className="lg:col-span-5 flex flex-col items-start lg:items-end">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="text-sm font-sans font-bold text-white">Success Our Priority</span>
+                <div className="w-6 h-6 rounded-full bg-[#C0F000] text-[#12372A] flex items-center justify-center font-bold text-xs">
+                  <Target className="w-3.5 h-3.5" />
+                </div>
+              </div>
+              <p className="text-xs text-gray-300 mb-6 lg:text-right max-w-sm">
+                Looking to grow your business results, customer platform. Our campaigns and strategies push engagement, attract followers, and strengthen your brand presence.
+              </p>
+
+              {/* Lime Green Stats Box */}
+              <div className="w-full bg-[#C0F000] text-[#12372A] p-4 sm:p-5 rounded-2xl grid grid-cols-3 gap-2 text-center shadow-lg">
+                <div>
+                  <h4 className="font-sans font-black text-2xl sm:text-3xl">
+                    <AnimatedCounter value="172+" />
+                  </h4>
+                  <p className="text-[10px] font-semibold text-[#12372A]/80 uppercase">Client Satisfaction</p>
+                </div>
+                <div className="border-x border-[#12372A]/20">
+                  <h4 className="font-sans font-black text-2xl sm:text-3xl">
+                    <AnimatedCounter value="283+" />
+                  </h4>
+                  <p className="text-[10px] font-semibold text-[#12372A]/80 uppercase">Best Services</p>
+                </div>
+                <div>
+                  <h4 className="font-sans font-black text-2xl sm:text-3xl">
+                    <AnimatedCounter value="453+" />
+                  </h4>
+                  <p className="text-[10px] font-semibold text-[#12372A]/80 uppercase">Business Growth</p>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
 
-        {/* Key Metrics Stats Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-          {stats.map((stat, idx) => {
-            const Icon = stat.icon;
-            return (
-              <div
-                key={idx}
-                className="glass-card-dark p-6 rounded-3xl border border-white/10 text-center relative group hover:-translate-y-2 transition-transform duration-300"
-              >
-                <div className="w-12 h-12 rounded-2xl bg-[#EF4444]/20 border border-[#EF4444]/40 flex items-center justify-center text-[#EF4444] mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <Icon className="w-6 h-6" />
-                </div>
-                <h3 className="font-heading font-black text-3xl sm:text-4xl text-white mb-1">
-                  {stat.value}
-                </h3>
-                <p className="font-heading font-bold text-sm text-[#EF4444] uppercase tracking-wide">
-                  {stat.label}
-                </p>
-                <p className="text-xs text-gray-400 mt-1 font-sans">{stat.desc}</p>
-              </div>
-            );
-          })}
+        {/* Partner Logos Marquee */}
+        <div className="py-6 border-y border-gray-200/80">
+          <div className="flex flex-wrap items-center justify-around gap-8 opacity-60 grayscale hover:grayscale-0 transition-all">
+            {partnerLogos.map((logo, idx) => (
+              <span key={idx} className="font-sans font-extrabold text-lg sm:text-xl tracking-widest text-gray-500 uppercase">
+                {logo}
+              </span>
+            ))}
+          </div>
         </div>
 
       </div>

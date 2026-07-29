@@ -1,74 +1,69 @@
 'use client';
 
-import React from 'react';
-import { MagneticButton } from '../ui/MagneticButton';
-import { MessageSquare, PhoneCall, Sparkles, Calendar } from 'lucide-react';
+import React, { useState } from 'react';
 
 interface FinalCTAProps {
   onOpenLeadModal: () => void;
 }
 
 export const FinalCTA: React.FC<FinalCTAProps> = ({ onOpenLeadModal }) => {
-  const whatsappUrl = `https://wa.me/917698012946?text=${encodeURIComponent(
-    'Hello Growzzy Team! I would like to book a free digital marketing consultation.'
-  )}`;
+  const [email, setEmail] = useState('');
+  const [subscribed, setSubscribed] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email) {
+      setSubscribed(true);
+    }
+  };
 
   return (
-    <section className="py-28 relative bg-[#071B3B] text-white overflow-hidden border-t border-white/10">
-      {/* Background Ambient Glow & Grid Pattern */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50rem] h-[50rem] rounded-full bg-gradient-to-tr from-[#EF4444]/20 via-[#102B5A]/40 to-[#071B3B] blur-[140px] pointer-events-none animate-pulse" />
-      <div className="absolute inset-0 bg-grid-pattern-dark opacity-30 pointer-events-none" />
-
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+    <section id="contact" className="py-16 bg-[#F8FAFC]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card-dark border border-[#EF4444]/40 text-[#EF4444] text-xs font-bold tracking-widest uppercase mb-8 shadow-lg">
-          <Sparkles className="w-4 h-4" /> TAKE YOUR BRAND TO THE NEXT LEVEL
-        </div>
+        {/* Light Gray Card Banner */}
+        <div className="bg-[#E2E8F0] rounded-3xl p-8 sm:p-12 lg:p-16 text-center max-w-5xl mx-auto shadow-sm">
+          
+          <h2 className="font-sans font-black text-3xl sm:text-5xl text-[#12372A] mb-4">
+            Subscribe Our Newsletter
+          </h2>
 
-        {/* Headline */}
-        <h2 className="font-heading font-black text-4xl sm:text-6xl lg:text-7xl text-white leading-tight mb-6">
-          Let's Grow Your <br />
-          <span className="text-gradient-dark">Business Together</span>
-        </h2>
+          <p className="text-sm sm:text-base text-gray-600 font-sans max-w-xl mx-auto mb-8 leading-relaxed">
+            Stay updated with the latest digital marketing insights, strategies, and growth tactics delivered straight to your inbox.
+          </p>
 
-        {/* Description */}
-        <p className="font-sans text-lg sm:text-2xl text-gray-300 max-w-2xl mx-auto leading-relaxed mb-10">
-          Book a free consultation today.
-        </p>
+          {subscribed ? (
+            <div className="p-4 rounded-full bg-[#C0F000] text-[#12372A] font-sans font-bold text-sm max-w-md mx-auto">
+              ✓ Thank you for subscribing to Growzzy insights!
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-lg mx-auto">
+              <input
+                type="email"
+                required
+                placeholder="Enter your email address..."
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full px-6 py-3.5 rounded-full bg-white text-[#12372A] text-sm font-sans outline-none border border-gray-300 focus:border-[#12372A] transition"
+              />
+              
+              <button
+                type="submit"
+                className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-[#C0F000] text-[#12372A] font-sans font-bold text-sm hover:bg-[#A8D400] transition shrink-0 cursor-pointer shadow-sm"
+              >
+                Subscribe Now
+              </button>
 
-        {/* Action Buttons */}
-        <div className="flex flex-wrap items-center justify-center gap-5 mb-12">
-          <MagneticButton href="tel:+917698012946" variant="primary" className="text-base py-4 px-8">
-            <PhoneCall className="w-5 h-5" /> Call Now
-          </MagneticButton>
+              <button
+                type="button"
+                onClick={onOpenLeadModal}
+                className="w-full sm:w-auto px-6 py-3.5 rounded-full bg-white text-[#12372A] font-sans font-bold text-sm hover:bg-gray-100 transition shrink-0 cursor-pointer border border-gray-300"
+              >
+                Contact Us
+              </button>
+            </form>
+          )}
 
-          <MagneticButton href={whatsappUrl} variant="dark" className="text-base py-4 px-8">
-            <MessageSquare className="w-5 h-5 text-emerald-600" /> WhatsApp
-          </MagneticButton>
-
-          <button
-            onClick={onOpenLeadModal}
-            className="px-8 py-4 rounded-full border-2 border-white/30 text-white font-heading font-bold text-base hover:bg-white/10 hover:border-white transition-all duration-300 flex items-center gap-2 cursor-pointer"
-          >
-            <Calendar className="w-5 h-5 text-[#EF4444]" /> Book Consultation
-          </button>
-        </div>
-
-        {/* Direct Contacts Info Bar */}
-        <div className="glass-card-dark p-6 rounded-3xl max-w-3xl mx-auto border border-white/15 flex flex-wrap items-center justify-around gap-4 text-xs text-gray-300">
-          <a href="tel:+917698012946" className="flex items-center gap-2 hover:text-[#EF4444] transition-colors">
-            <PhoneCall className="w-4 h-4 text-[#EF4444]" />
-            <span className="font-semibold text-white">Jeel Patel:</span> +91 76980 12946
-          </a>
-          <a href="tel:+919925030115" className="flex items-center gap-2 hover:text-[#EF4444] transition-colors">
-            <PhoneCall className="w-4 h-4 text-[#EF4444]" />
-            <span className="font-semibold text-white">Aryan Patel:</span> +91 99250 30115
-          </a>
-          <a href="tel:+918866084350" className="flex items-center gap-2 hover:text-[#EF4444] transition-colors">
-            <PhoneCall className="w-4 h-4 text-[#EF4444]" />
-            <span className="font-semibold text-white">Vivek Patel:</span> +91 88660 84350
-          </a>
         </div>
 
       </div>

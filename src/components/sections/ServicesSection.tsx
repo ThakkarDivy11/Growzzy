@@ -1,190 +1,141 @@
 'use client';
 
-import React from 'react';
-import { GlassCard } from '../ui/GlassCard';
-import { MagneticButton } from '../ui/MagneticButton';
-import {
-  Share2,
-  Video,
-  Palette,
-  TrendingUp,
-  Search,
-  Layout,
-  ArrowRight,
-  CheckCircle2,
-} from 'lucide-react';
+import React, { useState } from 'react';
+import { Play, Check, ChevronDown } from 'lucide-react';
 
 interface ServicesSectionProps {
   onOpenLeadModal: () => void;
 }
 
 export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenLeadModal }) => {
-  const services = [
+  const [openIndex, setOpenIndex] = useState<number>(0);
+
+  const accordionItems = [
     {
-      id: 'social-media-management',
-      title: 'Social Media Management',
-      icon: Share2,
-      desc: 'Build an engaged, loyal community across platforms with strategic organic content and active audience engagement.',
-      features: [
-        'Instagram Management',
-        'Facebook Management',
-        'Content Planning',
-        'Community Management',
+      title: 'Maximize Your Online Presence with Expert SEO Solutions',
+      desc: 'Having right to expand online presence and long-term success, our agency helps scale your business through data-driven strategies.',
+      points: [
+        '1.0 Organic ranking & keyword research strategy for top 1 Google placement',
+        '1.1 Competitor benchmark and backlink authority building',
+        '1.2 AI-driven content optimization & technical SEO performance audit',
       ],
-      badge: 'Organic Scale',
-      gradient: 'from-[#071B3B] to-[#102B5A]',
     },
     {
-      id: 'content-creation',
-      title: 'Content Creation',
-      icon: Video,
-      desc: 'High-converting 4K video reels, product showcases, and viral motion graphics that grab immediate attention.',
-      features: [
-        'Video Editing',
-        'Professional Reels',
-        'Motion Graphics',
+      title: 'Build Stunning, User-Friendly Websites That Convert',
+      desc: 'Craft high-converting, mobile-first responsive web apps built with ultra-fast page speed and optimized conversion funnels.',
+      points: [
+        '2.0 Custom UI/UX design tailored for maximum visitor engagement',
+        '2.1 Fast performance engineering with modern Next.js stack',
+        '2.2 Direct WhatsApp & CRM lead conversion automation',
       ],
-      badge: 'High Impact',
-      gradient: 'from-[#EF4444] to-red-600',
     },
     {
-      id: 'logo-design-branding',
-      title: 'Branding & Identity',
-      icon: Palette,
-      desc: 'Craft a distinct visual identity, memorable logos, and physical marketing assets that reflect brand leadership.',
-      features: [
-        'Logo Design',
-        'Brand Identity',
-        'Business Cards',
+      title: 'Drive Max Return & Engagement with Strategic Social Media Marketing',
+      desc: 'Generate predictable ROI with performance Meta & Google ads campaigns, viral 4K reels, and targeted brand storytelling.',
+      points: [
+        '3.0 High-ROAS paid ads campaign management across Meta & Google',
+        '3.1 Viral 4K video reel production and motion graphics',
+        '3.2 End-to-end community management and brand positioning',
       ],
-      badge: 'Visual Identity',
-      gradient: 'from-[#071B3B] to-[#102B5A]',
-    },
-    {
-      id: 'performance-marketing',
-      title: 'Performance Marketing',
-      icon: TrendingUp,
-      desc: 'Data-driven paid ads campaigns designed to generate high-quality leads, lower CAC, and maximize ROAS.',
-      features: [
-        'Lead Generation',
-        'Facebook Ads',
-        'Instagram Ads',
-        'Google Ads',
-      ],
-      badge: 'Max ROI',
-      gradient: 'from-[#EF4444] to-red-600',
-    },
-    {
-      id: 'seo',
-      title: 'SEO & Google Dominance',
-      icon: Search,
-      desc: 'Rank #1 on Google search for your key business search queries with comprehensive local & technical optimization.',
-      features: [
-        'Local SEO',
-        'Technical SEO',
-        'Google Business Profile',
-      ],
-      badge: 'Top Ranking',
-      gradient: 'from-[#071B3B] to-[#102B5A]',
-    },
-    {
-      id: 'landing-page-tech',
-      title: 'Landing Page Design',
-      icon: Layout,
-      desc: 'Ultra-fast, high-converting landing pages integrated with CRM tools and direct WhatsApp lead automation.',
-      features: [
-        'CRM Integration',
-        'WhatsApp Marketing',
-      ],
-      badge: 'Conversion Engine',
-      gradient: 'from-[#EF4444] to-red-600',
     },
   ];
 
   return (
-    <section id="services" className="py-24 relative bg-[#F8FAFC] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="services" className="py-20 bg-[#F8FAFC]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block px-4 py-1.5 rounded-full glass-pill border border-[#EF4444]/30 text-[#EF4444] text-xs font-bold tracking-widest uppercase mb-4">
-            OUR SERVICES
-          </span>
-          <h2 className="font-heading font-black text-4xl sm:text-6xl text-[#071B3B] leading-tight mb-4">
-            Growth Strategies That <br />
-            <span className="text-gradient">Deliver Real Revenue</span>
+        {/* Section Headline */}
+        <div className="max-w-3xl mb-16">
+          <h2 className="font-sans font-black text-3xl sm:text-5xl text-[#12372A] leading-tight">
+            Our Services Deliver the <span className="text-[#12372A]">Best Results for Your Business</span>
           </h2>
-          <p className="font-sans text-base sm:text-lg text-gray-600">
-            Tailored digital marketing solutions engineered for high conversion, brand authority, and sustained ROI.
-          </p>
         </div>
 
-        {/* Services Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service) => {
-            const Icon = service.icon;
-
-            return (
-              <GlassCard
-                key={service.id}
-                className="h-full flex flex-col justify-between group cursor-pointer border border-gray-200/80 hover:border-[#EF4444]/50 shadow-md hover:shadow-2xl transition-all duration-300"
-                hoverGlow={true}
-              >
-                <div>
-                  {/* Top Bar with Icon & Badge */}
-                  <div className="flex items-center justify-between mb-6">
-                    <div
-                      className={`w-14 h-14 rounded-2xl bg-gradient-to-tr ${service.gradient} flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300`}
-                    >
-                      <Icon className="w-7 h-7" />
-                    </div>
-                    <span className="px-3 py-1 rounded-full bg-[#071B3B]/5 text-[#071B3B] text-[11px] font-heading font-bold uppercase tracking-wider">
-                      {service.badge}
-                    </span>
-                  </div>
-
-                  {/* Title & Description */}
-                  <h3 className="font-heading font-bold text-2xl text-[#071B3B] group-hover:text-[#EF4444] transition-colors mb-3">
-                    {service.title}
-                  </h3>
-                  <p className="font-sans text-sm text-gray-600 leading-relaxed mb-6">
-                    {service.desc}
-                  </p>
-
-                  {/* Sub-services List */}
-                  <div className="space-y-2.5 mb-6 pt-4 border-t border-gray-100">
-                    {service.features.map((feat, idx) => (
-                      <div key={idx} className="flex items-center gap-2.5">
-                        <CheckCircle2 className="w-4 h-4 text-[#EF4444] shrink-0" />
-                        <span className="text-xs font-semibold text-[#071B3B]">{feat}</span>
-                      </div>
-                    ))}
-                  </div>
+        {/* Content Layout: Video Photo on Left, Accordion on Right */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          
+          {/* Left Column: Image with Play Button Overlay */}
+          <div className="lg:col-span-5 relative">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white group cursor-pointer" onClick={onOpenLeadModal}>
+              <img
+                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80"
+                alt="Growzzy Agency Video Overview"
+                className="w-full h-[420px] sm:h-[480px] object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+                <div className="w-16 h-16 rounded-full bg-[#C0F000] text-[#12372A] flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
+                  <Play className="w-7 h-7 fill-[#12372A] ml-1" />
                 </div>
+              </div>
+            </div>
+          </div>
 
-                {/* Bottom Action CTA Button */}
-                <div className="pt-4 border-t border-gray-100 flex items-center justify-between">
+          {/* Right Column: Interactive Accordion */}
+          <div className="lg:col-span-7 flex flex-col gap-4">
+            {accordionItems.map((item, idx) => {
+              const isOpen = openIndex === idx;
+
+              return (
+                <div
+                  key={idx}
+                  className="rounded-2xl overflow-hidden border border-gray-200 bg-white transition-all shadow-sm"
+                >
+                  {/* Accordion Pill Header */}
                   <button
-                    onClick={onOpenLeadModal}
-                    className="font-heading font-bold text-xs text-[#EF4444] group-hover:text-[#071B3B] flex items-center gap-2 transition-colors cursor-pointer"
+                    onClick={() => setOpenIndex(isOpen ? -1 : idx)}
+                    className={`w-full p-5 flex items-center justify-between text-left transition-colors cursor-pointer ${
+                      isOpen ? 'bg-[#C0F000] text-[#12372A]' : 'bg-[#C0F000]/80 hover:bg-[#C0F000] text-[#12372A]'
+                    }`}
                   >
-                    <span>Learn More</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    <div className="flex items-center gap-3">
+                      <div className="w-6 h-6 rounded-full bg-[#12372A] text-white flex items-center justify-center font-bold text-xs shrink-0">
+                        <ArrowRightIcon className="w-3.5 h-3.5" />
+                      </div>
+                      <span className="font-sans font-bold text-base sm:text-lg">
+                        {item.title}
+                      </span>
+                    </div>
+                    <ChevronDown
+                      className={`w-5 h-5 shrink-0 transition-transform duration-300 ${
+                        isOpen ? 'rotate-180' : ''
+                      }`}
+                    />
                   </button>
-                </div>
-              </GlassCard>
-            );
-          })}
-        </div>
 
-        {/* Bottom Callout */}
-        <div className="mt-16 text-center">
-          <MagneticButton onClick={onOpenLeadModal} variant="primary">
-            Get Custom Growth Strategy
-          </MagneticButton>
+                  {/* Accordion Body */}
+                  {isOpen && (
+                    <div className="p-6 bg-white animate-in fade-in duration-200">
+                      <p className="text-sm text-gray-600 font-sans leading-relaxed mb-4">
+                        {item.desc}
+                      </p>
+                      <div className="space-y-2.5">
+                        {item.points.map((pt, pIdx) => (
+                          <div key={pIdx} className="flex items-start gap-2.5">
+                            <div className="w-4 h-4 rounded-full bg-[#12372A]/10 text-[#12372A] flex items-center justify-center mt-0.5 shrink-0">
+                              <Check className="w-3 h-3 text-[#12372A]" />
+                            </div>
+                            <span className="text-xs sm:text-sm text-gray-700 font-sans font-medium">
+                              {pt}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+
         </div>
 
       </div>
     </section>
   );
 };
+
+const ArrowRightIcon = ({ className }: { className?: string }) => (
+  <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+  </svg>
+);

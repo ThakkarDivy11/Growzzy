@@ -10,10 +10,15 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
+          lime: "#C0F000",
+          limeLight: "#D4FB30",
+          limeHover: "#A8D400",
+          forest: "#12372A",
+          darkForest: "#0D2A1F",
+          deepForest: "#0B231A",
+          softGray: "#F1F5F9",
           dark: "#071B3B",
           navy: "#102B5A",
-          coral: "#FF4D4D",
-          light: "#F8FAFC",
           slate: "#0F172A",
           cardDark: "#0B2246",
         },

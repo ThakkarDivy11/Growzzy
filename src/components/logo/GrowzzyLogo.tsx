@@ -18,17 +18,17 @@ export const GrowzzyLogo: React.FC<GrowzzyLogoProps> = ({
   const isDarkBg = variant === 'dark' || variant === 'full-dark';
 
   const sizeMap = {
-    sm: { icon: 34, fontMain: 'text-lg', fontTag: 'text-[9px]' },
-    md: { icon: 44, fontMain: 'text-2xl', fontTag: 'text-[10px]' },
-    lg: { icon: 58, fontMain: 'text-3xl', fontTag: 'text-[12px]' },
-    xl: { icon: 76, fontMain: 'text-4xl', fontTag: 'text-[14px]' },
+    sm: { icon: 32, fontMain: 'text-base', fontTag: 'text-[8px]' },
+    md: { icon: 42, fontMain: 'text-xl', fontTag: 'text-[9px]' },
+    lg: { icon: 54, fontMain: 'text-2xl', fontTag: 'text-[11px]' },
+    xl: { icon: 70, fontMain: 'text-3xl', fontTag: 'text-[13px]' },
   };
 
   const currentSize = sizeMap[size];
 
   return (
     <div className={`inline-flex items-center gap-3 select-none group ${className}`}>
-      {/* Official Growzzy G Icon SVG */}
+      {/* Official Growzzy G SVG Icon */}
       <div className="relative transition-transform duration-300 group-hover:scale-105 flex-shrink-0">
         <svg
           width={currentSize.icon}
@@ -36,7 +36,7 @@ export const GrowzzyLogo: React.FC<GrowzzyLogoProps> = ({
           viewBox="0 0 140 140"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="drop-shadow-md"
+          className="drop-shadow-sm"
         >
           {/* Main Outer G Circular Body */}
           <path
@@ -54,14 +54,14 @@ export const GrowzzyLogo: React.FC<GrowzzyLogoProps> = ({
                L 126 80.5 
                L 126 70 
                C 126 38, 102 12, 70 12 Z"
-            fill={isDarkBg ? "#FFFFFF" : "#071B3B"}
+            fill={isDarkBg ? "#FFFFFF" : "#12372A"}
           />
           {/* Sharp Tail Point at Bottom Right */}
           <polygon
             points="96,96 124,124 102,124"
-            fill={isDarkBg ? "#FFFFFF" : "#071B3B"}
+            fill={isDarkBg ? "#FFFFFF" : "#12372A"}
           />
-          {/* Vibrant Red Arrow / Chevron Bar inside G */}
+          {/* Red Arrow / Chevron Bar inside G */}
           <path
             d="M 72 58.5 L 94 58.5 L 114 80.5 L 86 80.5 Z"
             fill="#EF4444"
@@ -74,11 +74,11 @@ export const GrowzzyLogo: React.FC<GrowzzyLogoProps> = ({
         </svg>
       </div>
 
-      {/* Brand Typography */}
+      {/* Official Brand Typography */}
       <div className="flex flex-col">
         <span
-          className={`font-heading font-black tracking-wider uppercase leading-none ${currentSize.fontMain} ${
-            isDarkBg ? 'text-white' : 'text-[#071B3B]'
+          className={`font-sans font-black tracking-wider uppercase leading-none ${currentSize.fontMain} ${
+            isDarkBg ? 'text-white' : 'text-[#12372A]'
           }`}
         >
           GROWZZY
@@ -86,7 +86,7 @@ export const GrowzzyLogo: React.FC<GrowzzyLogoProps> = ({
         {showTagline && (
           <span
             className={`font-sans tracking-[0.24em] uppercase font-bold mt-1 ${currentSize.fontTag} ${
-              isDarkBg ? 'text-gray-300' : 'text-[#102B5A]'
+              isDarkBg ? 'text-gray-300' : 'text-gray-500'
             }`}
           >
             GROW FAST & EASY

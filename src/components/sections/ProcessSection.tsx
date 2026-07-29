@@ -1,104 +1,99 @@
 'use client';
 
 import React from 'react';
-import { Search, Compass, Video, Rocket, Sliders, TrendingUp, ArrowRight, Layers } from 'lucide-react';
+import { Target, Cpu } from 'lucide-react';
+import { AnimatedCounter } from '../ui/AnimatedCounter';
 
 export const ProcessSection: React.FC = () => {
-  const steps = [
-    {
-      num: '01',
-      title: 'Discovery',
-      icon: Search,
-      desc: 'In-depth business audit, competitor analysis, target customer research, and bottleneck identification.',
-    },
-    {
-      num: '02',
-      title: 'Strategy',
-      icon: Compass,
-      desc: 'Formulating custom multi-channel growth funnels, offer positioning, ad budget allocation, and KPI roadmaps.',
-    },
-    {
-      num: '03',
-      title: 'Content Creation',
-      icon: Video,
-      desc: 'Crafting viral 4K video reels, high-converting ad graphics, branding visuals, and landing page assets.',
-    },
-    {
-      num: '04',
-      title: 'Campaign Execution',
-      icon: Rocket,
-      desc: 'Deploying hyper-targeted Meta & Google ad campaigns, SEO structural changes, and tracking pixels.',
-    },
-    {
-      num: '05',
-      title: 'Optimization',
-      icon: Sliders,
-      desc: 'Real-time A/B testing of ad creatives, audience refinement, bid management, and CRO tuning.',
-    },
-    {
-      num: '06',
-      title: 'Growth',
-      icon: TrendingUp,
-      desc: 'Scaling winning campaigns aggressively to multiply revenue, lead inflow, and market dominance.',
-    },
-  ];
-
   return (
-    <section id="process" className="py-24 relative bg-[#F8FAFC] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="process" className="py-20 bg-[#F8FAFC]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-pill border border-[#EF4444]/30 text-[#EF4444] text-xs font-bold tracking-widest uppercase mb-4">
-            <Layers className="w-4 h-4 text-[#EF4444]" /> OUR PROCESS
-          </div>
-          <h2 className="font-heading font-black text-4xl sm:text-6xl text-[#071B3B] leading-tight mb-4">
-            A Proven 6-Step Framework <br />
-            <span className="text-gradient">For Scalable Growth</span>
-          </h2>
-          <p className="font-sans text-base sm:text-lg text-gray-600">
-            From initial discovery to rapid scaling, our process guarantees transparent execution and measurable results.
-          </p>
-        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          {/* Left Column: Text & Bullet Features */}
+          <div className="lg:col-span-6">
+            <span className="inline-block px-3 py-1 rounded-md bg-[#12372A]/5 text-[#12372A] text-xs font-bold uppercase tracking-wider mb-4">
+              Our Services
+            </span>
 
-        {/* Horizontal Timeline Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-5 relative">
-          {steps.map((step, idx) => {
-            const Icon = step.icon;
-            return (
-              <div
-                key={idx}
-                className="glass-card p-6 rounded-3xl flex flex-col justify-between border border-gray-200/80 hover:border-[#EF4444] hover:-translate-y-2 shadow-md hover:shadow-xl transition-all duration-300 relative group"
-              >
+            <h2 className="font-sans font-black text-3xl sm:text-5xl text-[#12372A] leading-tight mb-6">
+              Tailored Strategies for <span className="text-[#12372A]">Maximum Business Growth</span>
+            </h2>
+
+            <p className="font-sans text-sm sm:text-base text-gray-600 leading-relaxed mb-8">
+              Having right to expand online presence and long-term success, our agency helps scale your business through data-driven strategies...
+            </p>
+
+            {/* Feature Icon Items */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+              <div className="flex items-start gap-4">
+                <div className="w-11 h-11 rounded-xl bg-[#C0F000] text-[#12372A] flex items-center justify-center shrink-0 shadow-sm">
+                  <Target className="w-5 h-5" />
+                </div>
                 <div>
-                  {/* Step Number & Icon Header */}
-                  <div className="flex items-center justify-between mb-5">
-                    <div className="w-11 h-11 rounded-xl bg-[#071B3B] text-white flex items-center justify-center font-heading font-bold text-sm shadow-md group-hover:bg-[#EF4444] transition-colors duration-300">
-                      <Icon className="w-5 h-5" />
-                    </div>
-                    <span className="font-heading font-black text-2xl text-[#EF4444]">
-                      {step.num}
-                    </span>
-                  </div>
-
-                  {/* Title & Description */}
-                  <h3 className="font-heading font-bold text-lg text-[#071B3B] group-hover:text-[#EF4444] transition-colors mb-2">
-                    {step.title}
-                  </h3>
-                  <p className="font-sans text-xs text-gray-600 leading-relaxed">
-                    {step.desc}
+                  <h4 className="font-sans font-bold text-base text-[#12372A] mb-1">
+                    Driven Strategies
+                  </h4>
+                  <p className="text-xs text-gray-600 font-sans leading-relaxed">
+                    Data-driven decisions for maximum ROI and sustainable market scaling.
                   </p>
                 </div>
-
-                {/* Arrow Connector (Desktop) */}
-                {idx < steps.length - 1 && (
-                  <div className="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 z-20 text-[#EF4444]">
-                    <ArrowRight className="w-4 h-4" />
-                  </div>
-                )}
               </div>
-            );
-          })}
+
+              <div className="flex items-start gap-4">
+                <div className="w-11 h-11 rounded-xl bg-[#C0F000] text-[#12372A] flex items-center justify-center shrink-0 shadow-sm">
+                  <Cpu className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="font-sans font-bold text-base text-[#12372A] mb-1">
+                    Digital Solution
+                  </h4>
+                  <p className="text-xs text-gray-600 font-sans leading-relaxed">
+                    Custom tailored digital solutions built to fit your precise needs.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <p className="text-xs text-gray-500 font-sans leading-relaxed pt-4 border-t border-gray-200/80">
+              Having right to expand online presence and long-term success, our agency helps scale your business through data-driven strategies.
+            </p>
+          </div>
+
+          {/* Right Column: Professional Portrait Photo + Overlaid Stats Bar */}
+          <div className="lg:col-span-6 relative">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+              <img
+                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=1000&q=80"
+                alt="Digital Marketing Leader"
+                className="w-full h-[450px] sm:h-[520px] object-cover"
+              />
+
+              {/* Bottom Overlaid Stats Banner */}
+              <div className="absolute bottom-4 left-4 right-4 bg-[#C0F000] text-[#12372A] p-4 rounded-2xl grid grid-cols-3 gap-2 text-center shadow-lg">
+                <div>
+                  <h4 className="font-sans font-black text-2xl sm:text-3xl">
+                    <AnimatedCounter value="172+" />
+                  </h4>
+                  <p className="text-[10px] font-semibold text-[#12372A]/80 uppercase">Client Satisfaction</p>
+                </div>
+                <div className="border-x border-[#12372A]/20">
+                  <h4 className="font-sans font-black text-2xl sm:text-3xl">
+                    <AnimatedCounter value="283+" />
+                  </h4>
+                  <p className="text-[10px] font-semibold text-[#12372A]/80 uppercase">Best Services</p>
+                </div>
+                <div>
+                  <h4 className="font-sans font-black text-2xl sm:text-3xl">
+                    <AnimatedCounter value="453+" />
+                  </h4>
+                  <p className="text-[10px] font-semibold text-[#12372A]/80 uppercase">Business Growth</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
 
       </div>
